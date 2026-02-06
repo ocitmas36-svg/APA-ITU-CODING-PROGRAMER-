@@ -1,10 +1,10 @@
-function saveProgress(langId){
-  localStorage.setItem("progress-"+langId,true);
+function getProgress(langId){
+  return localStorage.getItem("done-"+langId) ? true : false;
 }
 
-function updateProgress(langId){
-  const bar = document.getElementById("progressBar");
-  const done = localStorage.getItem("progress-"+langId);
-  bar.style.width = done ? "100%" : "0%";
-  bar.innerText = done ? "100%" : "0%";
+function showProgress(langId){
+  const done = getProgress(langId);
+  if(done){
+    console.log(`✅ ${langId} selesai`);
+  }
 }
