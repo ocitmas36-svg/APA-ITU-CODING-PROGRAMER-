@@ -1,5 +1,7 @@
-Web Edukasi Programmer
-- 15 Bahasa
+# Web Edukasi Programmer
+
+- 15 Bahasa Pemrograman
+- Detail materi
 - Quiz
-- Grafik
+- Grafik skill
 - Siap GitHub Pages
