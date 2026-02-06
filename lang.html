@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Materi Bahasa Pemrograman</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<a href="index.html">⬅ Kembali</a>
+
+<h1 id="title"></h1>
+<div id="content"></div>
+
+<canvas id="chart"></canvas>
+
+<section id="quiz">
+  <h2>Quiz Programmer</h2>
+  <p id="question"></p>
+  <div id="answers"></div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <p id="scoreText"></p>
+  <p id="badge"></p>
+  <button onclick="startQuiz()">Mulai Quiz</button>
+</section>
+
+<script src="script.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+loadLang(params.get("lang"));
+</script>
+</body>
+</html>
