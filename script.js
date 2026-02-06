@@ -1,118 +1,125 @@
 let chart;
 
+/* ======================
+   DATA BAHASA
+====================== */
 const data = {
-  javascript: {
-    title: "JavaScript",
-    desc: `
-<h3>Level 1 – Pengenalan</h3>
-JavaScript dibuat oleh Brendan Eich (1995) untuk membuat web interaktif.
+  javascript: langFull(
+    "JavaScript",
+    "Dibuat Brendan Eich (1995), bahasa utama web interaktif.",
+    "Variabel, function, DOM, event.",
+    "React, Vue, Node.js.",
+    "Frontend & backend, peluang kerja tinggi.",
+    `let nama = "Programmer"; console.log(nama);`,
+    [90,60,85,80]
+  ),
 
-<h3>Level 2 – Dasar</h3>
-Variabel, function, DOM, event, loop.
+  python: langFull(
+    "Python",
+    "Dibuat Guido van Rossum (1991).",
+    "Sintaks sederhana, cocok pemula.",
+    "AI, Data Science, Django.",
+    "Sangat kuat untuk AI & data.",
+    `print("Halo Programmer")`,
+    [85,40,90,70]
+  ),
 
-<h3>Level 3 – Lanjutan</h3>
-Framework: React, Vue, Node.js.
-
-<h3>Level 4 – Profesional</h3>
-Digunakan frontend & backend, peluang kerja sangat tinggi.
-
-<pre>let nama = "Programmer";
-console.log(nama);</pre>
-`,
-    chart: [90, 60, 85, 80]
-  },
-
-  python: {
-    title: "Python",
-    desc: `
-<h3>Level 1</h3>
-Dibuat Guido van Rossum (1991), mudah dibaca.
-
-<h3>Level 2</h3>
-If, loop, function, list, dictionary.
-
-<h3>Level 3</h3>
-AI, Data Science, Django, Flask.
-
-<h3>Level 4</h3>
-Sangat populer untuk AI & Machine Learning.
-
-<pre>print("Halo Programmer")</pre>
-`,
-    chart: [85, 40, 90, 70]
-  },
-
-  php: {
-    title: "PHP",
-    desc: `
-<h3>Level 1</h3>
-Bahasa backend web.
-
-<h3>Level 2</h3>
-Integrasi HTML & MySQL.
-
-<h3>Level 3</h3>
-Framework Laravel.
-
-<h3>Level 4</h3>
-Banyak digunakan CMS seperti WordPress.
-
-<pre>&lt;?php echo "Halo"; ?&gt;</pre>
-`,
-    chart: [75, 50, 70, 65]
-  },
-
-  java: langTemplate("Java", 80, 65, 85, 75),
-  c: langTemplate("C", 70, 75, 65, 85),
-  cpp: langTemplate("C++", 75, 70, 70, 90),
-  csharp: langTemplate("C#", 75, 65, 75, 80),
-  kotlin: langTemplate("Kotlin", 70, 60, 75, 70),
-  dart: langTemplate("Dart", 65, 55, 70, 65),
-  go: langTemplate("Go", 70, 60, 80, 85),
-  rust: langTemplate("Rust", 65, 75, 75, 90),
-  swift: langTemplate("Swift", 70, 60, 70, 75),
-  ruby: langTemplate("Ruby", 60, 55, 65, 60),
-  sql: langTemplate("SQL", 85, 40, 90, 70),
-  r: langTemplate("R", 60, 65, 70, 65)
+  php: langFull(
+    "PHP",
+    "Bahasa backend web.",
+    "Integrasi HTML & MySQL.",
+    "Framework Laravel.",
+    "Digunakan CMS seperti WordPress.",
+    `<?php echo "Halo"; ?>`,
+    [75,50,70,65]
+  )
 };
 
-function langTemplate(name, p, k, j, f) {
+/* TEMPLATE BAHASA LAIN */
+["java","c","cpp","csharp","kotlin","dart","go","rust","swift","ruby","sql","r"]
+.forEach(b => {
+  data[b] = langFull(
+    b.toUpperCase(),
+    "Pengenalan & sejarah singkat.",
+    "Konsep dasar & sintaks.",
+    "Penggunaan industri.",
+    "Karier profesional.",
+    "",
+    [70,60,70,70]
+  );
+});
+
+function langFull(name,l1,l2,l3,l4,code,chartData){
   return {
-    title: name,
-    desc: `
-<h3>Level 1</h3>
-Pengenalan bahasa ${name}.
-
-<h3>Level 2</h3>
-Konsep dasar & sintaks.
-
-<h3>Level 3</h3>
-Framework & penggunaan industri.
-
-<h3>Level 4</h3>
-Digunakan secara profesional di bidang tertentu.
+    title:name,
+    desc:`
+<h3>Level 1</h3>${l1}
+<h3>Level 2</h3>${l2}
+<h3>Level 3</h3>${l3}
+<h3>Level 4</h3>${l4}
+${code ? `<pre>${code}</pre>` : ""}
 `,
-    chart: [p, k, j, f]
+    chart:chartData
   };
 }
 
-function loadLang(lang) {
+function loadLang(lang){
   document.getElementById("content").innerHTML =
     `<h2>${data[lang].title}</h2>${data[lang].desc}`;
 
-  if (chart) chart.destroy();
-  chart = new Chart(document.getElementById("chart"), {
-    type: 'bar',
-    data: {
-      labels: ["Popularitas", "Kesulitan", "Peluang Kerja", "Performa"],
-      datasets: [{
-        data: data[lang].chart
-      }]
+  if(chart) chart.destroy();
+  chart = new Chart(document.getElementById("chart"),{
+    type:"bar",
+    data:{
+      labels:["Popularitas","Kesulitan","Peluang Kerja","Performa"],
+      datasets:[{data:data[lang].chart}]
     }
   });
 }
 
-function jawab(benar) {
-  document.getElementById("hasil").innerText =
-    benar ? "✅ Benar! Python unggul di AI." : "❌ Salah, coba pelajari lagi.";
+/* ======================
+   QUIZ SKOR
+====================== */
+const quiz = [
+  {q:"Bahasa AI paling populer?",o:["Python","PHP","C"],c:0},
+  {q:"Bahasa utama web?",o:["Java","JavaScript","C++"],c:1},
+  {q:"Bahasa backend populer?",o:["PHP","Swift","Rust"],c:0},
+  {q:"Bahasa database?",o:["SQL","Go","C"],c:0}
+];
+
+let qi=0,score=0;
+
+function startQuiz(){
+  qi=0; score=0;
+  showQ();
+}
+
+function showQ(){
+  const q=quiz[qi];
+  document.getElementById("question").innerText=q.q;
+  const a=document.getElementById("answers");
+  a.innerHTML="";
+  q.o.forEach((x,i)=>{
+    const b=document.createElement("button");
+    b.innerText=x;
+    b.onclick=()=>ans(i);
+    a.appendChild(b);
+  });
+}
+
+function ans(i){
+  if(i===quiz[qi].c) score++;
+  qi++;
+  document.getElementById("progressBar").style.width=
+    (qi/quiz.length*100)+"%";
+  qi<quiz.length ? showQ() : finish();
+}
+
+function finish(){
+  const hasil=Math.round(score/quiz.length*100);
+  document.getElementById("question").innerText="Quiz Selesai";
+  document.getElementById("answers").innerHTML="";
+  document.getElementById("scoreText").innerText="Skor: "+hasil+"%";
+  document.getElementById("badge").innerText=
+    hasil>=80?"🟣 Mahir":hasil>=60?"🔵 Menengah":"🟢 Pemula";
 }
