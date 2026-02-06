@@ -2,20 +2,18 @@ const languages = [
   {
     id: "javascript",
     name: "JavaScript",
-    level: "Beginner → Advanced",
-    description: "Bahasa utama web interaktif.",
-    materi: ["DOM", "Async", "Frontend", "Backend"],
-    roadmap: ["Belajar Syntax", "DOM Manipulation", "Async Programming", "Framework (React/Vue)"],
-    codeExample: "console.log('Hello World');"
+    description: "Bahasa utama untuk web interaktif.",
+    roadmap: ["Syntax Dasar","DOM","Async","Frontend","Backend"],
+    examples: ["console.log('Hello World');","fetch('url').then(res=>res.json());"],
+    level: "Beginner → Advanced"
   },
   {
     id: "python",
     name: "Python",
-    level: "Beginner → Advanced",
-    description: "Bahasa serbaguna, AI dan data science.",
-    materi: ["Syntax Dasar", "OOP", "Data Science", "AI"],
-    roadmap: ["Belajar Syntax", "OOP", "Library (Pandas, Numpy)", "Machine Learning"],
-    codeExample: "print('Hello World')"
+    description: "Bahasa serbaguna, populer untuk AI dan data.",
+    roadmap: ["Syntax Dasar","OOP","Data Science","AI"],
+    examples: ["print('Hello World')","import numpy as np"],
+    level: "Beginner → Advanced"
   }
-  // Tambahkan semua 15 bahasa dengan struktur sama
+  // ...Tambahkan bahasa lain sama formatnya
 ];
