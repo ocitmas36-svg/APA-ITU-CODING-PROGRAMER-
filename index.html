@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Belajar Programmer</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#141e30,#243b55);
+  color:white;
+}
+
+header{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  color:#333;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.05);
+}
+
+.content{
+  display:none;
+  background:white;
+  color:#333;
+  margin:20px;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.progress{
+  background:#ddd;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:10px;
+}
+.bar{
+  height:18px;
+  background:linear-gradient(90deg,#1e3c72,#2a5298);
+  color:white;
+  font-size:12px;
+  text-align:right;
+  padding-right:8px;
+}
+
+code{
+  background:#eee;
+  display:block;
+  padding:10px;
+  border-radius:8px;
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#2a5298;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>👋 Selamat Datang</h1>
+<p>
+Apakah kamu ingin menjadi <b>programmer</b>?<br>
+Silakan pilih bahasa pemrograman untuk mempelajarinya dari dasar hingga profesional.
+</p>
+</header>
+
+<div class="container">
+  <div class="card" onclick="show('js')">JavaScript</div>
+  <div class="card" onclick="show('py')">Python</div>
+  <div class="card" onclick="show('php')">PHP</div>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<div id="js" class="content">
+<h2>JavaScript</h2>
+
+<h3>🟢 Level 1 – Pengenalan</h3>
+<p>
+JavaScript dibuat oleh <b>Brendan Eich</b> pada tahun 1995.
+Bahasa ini digunakan untuk membuat website menjadi interaktif.
+</p>
+
+<h3>🔵 Level 2 – Dasar Teknis</h3>
+<ul>
+<li>Paradigma: Multi-paradigm</li>
+<li>Variabel: let, const</li>
+<li>Tipe data: string, number, boolean</li>
+<li>Control flow: if, loop</li>
+<li>Function & Object</li>
+</ul>
+
+<h3>🟠 Level 3 – Lanjutan</h3>
+<ul>
+<li>Framework: React, Vue, Angular</li>
+<li>Backend: Node.js</li>
+<li>Use case: SPA, API, Game Web</li>
+</ul>
+
+<h3>🔴 Level 4 – Profesional</h3>
+<ul>
+<li>Roadmap: JS Dasar → DOM → Async → Framework</li>
+<li>Peluang kerja: Sangat tinggi (global)</li>
+</ul>
+
+<h3>📊 Grafik Penggunaan</h3>
+<div class="progress"><div class="bar" style="width:90%">Web 90%</div></div>
+<div class="progress"><div class="bar" style="width:70%">Backend 70%</div></div>
+
+<h3>💻 Contoh Kode</h3>
+<code>
+let nama = "Programmer";
+console.log("Halo " + nama);
+</code>
+
+<button onclick="hide()">Tutup</button>
+</div>
+
+<!-- ================= PYTHON ================= -->
+<div id="py" class="content">
+<h2>Python</h2>
+
+<h3>🟢 Level 1 – Pengenalan</h3>
+<p>
+Python dibuat oleh <b>Guido van Rossum</b> pada tahun 1991.
+Python terkenal mudah dibaca dan dipelajari.
+</p>
+
+<h3>🔵 Level 2 – Dasar Teknis</h3>
+<ul>
+<li>Paradigma: Multi-paradigm</li>
+<li>Variabel & tipe data</li>
+<li>List & Dictionary</li>
+<li>If else & Loop</li>
+<li>Function</li>
+</ul>
+
+<h3>🟠 Level 3 – Lanjutan</h3>
+<ul>
+<li>Framework: Django, Flask</li>
+<li>Library: NumPy, Pandas</li>
+<li>Use case: AI, ML, Backend, Automation</li>
+</ul>
+
+<h3>🔴 Level 4 – Profesional</h3>
+<ul>
+<li>Roadmap: Dasar → OOP → Data/Web → AI</li>
+<li>Peluang kerja: Sangat tinggi</li>
+</ul>
+
+<h3>📊 Grafik Penggunaan</h3>
+<div class="progress"><div class="bar" style="width:95%">AI 95%</div></div>
+<div class="progress"><div class="bar" style="width:75%">Web 75%</div></div>
+
+<h3>💻 Contoh Kode</h3>
+<code>
+nama = "Programmer"
+print("Halo", nama)
+</code>
+
+<button onclick="hide()">Tutup</button>
+</div>
+
+<!-- ================= PHP ================= -->
+<div id="php" class="content">
+<h2>PHP</h2>
+
+<h3>🟢 Level 1 – Pengenalan</h3>
+<p>
+PHP dibuat oleh <b>Rasmus Lerdorf</b> pada tahun 1995.
+PHP digunakan untuk membuat website dinamis.
+</p>
+
+<h3>🔵 Level 2 – Dasar Teknis</h3>
+<ul>
+<li>Paradigma: Procedural & OOP</li>
+<li>Variabel ($nama)</li>
+<li>If else & Loop</li>
+<li>Function</li>
+</ul>
+
+<h3>🟠 Level 3 – Lanjutan</h3>
+<ul>
+<li>Framework: Laravel, CodeIgniter</li>
+<li>Database: MySQL</li>
+<li>Use case: Sistem Informasi, CMS</li>
+</ul>
+
+<h3>🔴 Level 4 – Profesional</h3>
+<ul>
+<li>Roadmap: PHP Dasar → Database → Laravel</li>
+<li>Peluang kerja: Stabil (web lokal)</li>
+</ul>
+
+<h3>📊 Grafik Penggunaan</h3>
+<div class="progress"><div class="bar" style="width:85%">Web 85%</div></div>
+
+<h3>💻 Contoh Kode</h3>
+<code>
+&lt;?php
+$nama = "Programmer";
+echo "Halo " . $nama;
+?&gt;
+</code>
+
+<button onclick="hide()">Tutup</button>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.content')
+    .forEach(c => c.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function hide(){
+  document.querySelectorAll('.content')
+    .forEach(c => c.style.display = 'none');
+}
+</script>
+
+</body>
+</html>
