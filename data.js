@@ -1,0 +1,35 @@
+const languages = {
+  python: {
+    name: "Python",
+    origin: "Guido van Rossum (1991)",
+    desc: "Bahasa populer untuk AI, data, dan web.",
+    level: 90,
+    materi: ["Syntax dasar", "OOP", "Data Science", "AI"],
+  },
+  javascript: {
+    name: "JavaScript",
+    origin: "Brendan Eich (1995)",
+    desc: "Bahasa utama web interaktif.",
+    level: 85,
+    materi: ["DOM", "Async", "Frontend", "Backend"],
+  },
+  php: {
+    name: "PHP",
+    origin: "Rasmus Lerdorf (1995)",
+    desc: "Backend web & server.",
+    level: 75,
+    materi: ["Form", "MySQL", "API"],
+  },
+  java:{name:"Java",origin:"James Gosling",desc:"Enterprise & Android",level:80,materi:["OOP","Spring","Android"]},
+  cpp:{name:"C++",origin:"Bjarne Stroustrup",desc:"Game & sistem",level:70,materi:["Memory","STL","Game"]},
+  csharp:{name:"C#",origin:"Microsoft",desc:"Desktop & Game",level:75,materi:[".NET","Unity"]},
+  go:{name:"Go",origin:"Google",desc:"Backend cepat",level:78,materi:["Concurrency","API"]},
+  rust:{name:"Rust",origin:"Mozilla",desc:"Aman & cepat",level:65,materi:["Ownership","System"]},
+  swift:{name:"Swift",origin:"Apple",desc:"iOS App",level:70,materi:["UIKit","SwiftUI"]},
+  kotlin:{name:"Kotlin",origin:"JetBrains",desc:"Android modern",level:78,materi:["Android","Coroutines"]},
+  ruby:{name:"Ruby",origin:"Yukihiro Matsumoto",desc:"Web cepat",level:60,materi:["Rails"]},
+  typescript:{name:"TypeScript",origin:"Microsoft",desc:"JS bertipe",level:85,materi:["Typing","Frontend"]},
+  dart:{name:"Dart",origin:"Google",desc:"Flutter",level:72,materi:["Mobile","UI"]},
+  scala:{name:"Scala",origin:"Martin Odersky",desc:"Big Data",level:55,materi:["Functional"]},
+  perl:{name:"Perl",origin:"Larry Wall",desc:"Scripting",level:50,materi:["Regex"]}
+};
