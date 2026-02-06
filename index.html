@@ -1,68 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Belajar Coding & Programmer</title>
-
-<meta name="description" content="Belajar coding dan bahasa pemrograman dari nol sampai profesional.">
-<meta name="keywords" content="belajar coding, programmer, bahasa pemrograman">
-<meta name="author" content="Ocitmas36">
-
-<link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Belajar Coding by Ocitmas36",
-  "url": "https://ocitmas36-svg.github.io/APA-ITU-CODING-PROGRAMER/"
-}
-</script>
+  <meta charset="UTF-8">
+  <title>Apa Itu Coding Programmer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<header>
-  <h1>Belajar Coding & Programmer</h1>
-  <p>Apakah kamu ingin menjadi programmer?  
-     Pilih bahasa dan mulai belajar.</p>
-  <button id="themeToggle">🌙</button>
-</header>
 
-<section class="buttons">
-  <button onclick="goLang('javascript')">JavaScript</button>
-  <button onclick="goLang('python')">Python</button>
-  <button onclick="goLang('php')">PHP</button>
-  <button onclick="goLang('java')">Java</button>
-  <button onclick="goLang('c')">C</button>
-  <button onclick="goLang('cpp')">C++</button>
-  <button onclick="goLang('csharp')">C#</button>
-  <button onclick="goLang('kotlin')">Kotlin</button>
-  <button onclick="goLang('dart')">Dart</button>
-  <button onclick="goLang('go')">Go</button>
-  <button onclick="goLang('rust')">Rust</button>
-  <button onclick="goLang('swift')">Swift</button>
-  <button onclick="goLang('ruby')">Ruby</button>
-  <button onclick="goLang('sql')">SQL</button>
-  <button onclick="goLang('r')">R</button>
-</section>
+<h1>👋 Selamat Datang</h1>
+<p>Apakah kamu ingin menjadi programmer?  
+Silakan pilih bahasa pemrograman:</p>
 
-<section id="progressInfo"></section>
+<div class="grid">
+  <a href="lang.html?lang=python">Python</a>
+  <a href="lang.html?lang=javascript">JavaScript</a>
+  <a href="lang.html?lang=php">PHP</a>
+  <a href="lang.html?lang=java">Java</a>
+  <a href="lang.html?lang=cpp">C++</a>
+  <a href="lang.html?lang=csharp">C#</a>
+  <a href="lang.html?lang=go">Go</a>
+  <a href="lang.html?lang=rust">Rust</a>
+  <a href="lang.html?lang=swift">Swift</a>
+  <a href="lang.html?lang=kotlin">Kotlin</a>
+  <a href="lang.html?lang=ruby">Ruby</a>
+  <a href="lang.html?lang=typescript">TypeScript</a>
+  <a href="lang.html?lang=dart">Dart</a>
+  <a href="lang.html?lang=scala">Scala</a>
+  <a href="lang.html?lang=perl">Perl</a>
+</div>
 
-<footer>
-  <p>© 2026 – Belajar Coding by Ocitmas36</p>
-</footer>
+<br>
+<a href="quiz.html" class="btn">🧠 Mulai Quiz</a>
+<a href="about.html" class="btn">ℹ️ Tentang Web</a>
 
-<script src="script.js"></script>
-<script>
-function goLang(lang){
-  localStorage.setItem("lastLang", lang);
-  window.location.href = "lang.html?lang=" + lang;
-}
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
-</script>
 </body>
 </html>
