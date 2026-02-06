@@ -1,35 +1,14 @@
-/* ===============================
-   FIX KLIK MATI / OVERLAY
-=============================== */
-* {
-  pointer-events: auto;
+body {font-family:Arial; padding:20px}
+.grid a {
+  display:inline-block;
+  margin:5px;
+  padding:10px;
+  background:#0072ff;
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
 }
-
-body {
-  overflow-x: hidden;
-}
-
-.progress-box {
-  width: 100%;
-  background: #eee;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  color: white;
-  padding: 8px;
-  text-align: center;
-  border-radius: 20px;
-  transition: width 0.6s ease;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  background: #0072ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-}
+.btn {padding:10px;background:#00c6ff;color:#fff;text-decoration:none;margin:5px;display:inline-block}
+.progress-box{background:#eee;border-radius:20px}
+.progress-bar{background:#0072ff;color:white;padding:8px;border-radius:20px}
+*{pointer-events:auto}
