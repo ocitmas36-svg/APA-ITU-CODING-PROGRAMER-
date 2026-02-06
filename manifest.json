@@ -1,0 +1,7 @@
+{
+  "name": "Belajar Coding",
+  "short_name": "Coding",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#2563eb"
+}
