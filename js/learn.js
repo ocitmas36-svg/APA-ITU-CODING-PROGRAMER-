@@ -1,48 +1,34 @@
 const params = new URLSearchParams(location.search);
-const langId = params.get("lang");
-const langData = languages.find(l => l.id === langId);
-const langNameEl = document.getElementById("langName");
+const key = params.get("lang");
+const nameEl = document.getElementById("langName");
 const tabContent = document.getElementById("tabContent");
-const progressBar = document.getElementById("progressBar");
+const tabs = document.querySelectorAll("#tabs button");
 
-// Set title
-if(!langData){
-  langNameEl.innerText = "Bahasa tidak ditemukan";
-  tabContent.innerHTML = "";
+if (!languages.find(l=>l.id===key)) {
+  nameEl.innerText="Bahasa tidak ditemukan";
+  tabContent.innerHTML="<p>Tidak ada materi</p>";
 } else {
-  langNameEl.innerText = langData.name;
-  updateProgress(langId);
+  const lang = languages.find(l=>l.id===key);
+  nameEl.innerText = lang.name;
 
-  // Tab logic
-  const tabBtns = document.querySelectorAll(".tab-btn");
-  tabBtns.forEach(btn => btn.addEventListener("click", ()=>{
-    tabBtns.forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    showTab(btn.dataset.tab);
-  }));
+  const content = {
+    desc: `<p>${lang.description}</p>`,
+    roadmap: `<ul>${lang.roadmap.map(r=>`<li>${r}</li>`).join("")}</ul>`,
+    examples: `<pre>${lang.examples.join("\n")}</pre>`
+  };
 
-  function showTab(tab){
-    switch(tab){
-      case "desc":
-        tabContent.innerHTML = `<p>${langData.description}</p><p>Level: ${langData.level}</p>`;
-        break;
-      case "materi":
-        tabContent.innerHTML = `<ul>${langData.materi.map(m=>`<li>${m}</li>`).join("")}</ul>`;
-        break;
-      case "roadmap":
-        tabContent.innerHTML = `<ul>${langData.roadmap.map(r=>`<li>${r}</li>`).join("")}</ul>`;
-        break;
-      case "code":
-        tabContent.innerHTML = `<pre><code>${langData.codeExample}</code></pre>`;
-        break;
-    }
-  }
+  tabContent.innerHTML = content.desc;
 
-  showTab("desc"); // default
+  tabs.forEach(t=>{
+    t.addEventListener("click", ()=>{
+      tabs.forEach(btn=>btn.classList.remove("active"));
+      t.classList.add("active");
+      tabContent.innerHTML = content[t.dataset.tab];
+    });
+  });
 }
 
 function markDone(){
-  saveProgress(langId);
-  alert("Progress disimpan ✅");
-  updateProgress(langId);
+  localStorage.setItem("done-"+key,true);
+  alert(`Progress ${languages.find(l=>l.id===key).name} disimpan 🎉`);
 }
