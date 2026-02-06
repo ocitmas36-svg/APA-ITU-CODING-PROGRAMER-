@@ -1,41 +1,48 @@
-const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(location.search);
 const langId = params.get("lang");
-const hero = document.getElementById("learnHero");
+const langData = languages.find(l => l.id === langId);
+const langNameEl = document.getElementById("langName");
 const tabContent = document.getElementById("tabContent");
-const tabOverview = document.getElementById("tabOverview");
-const tabRoadmap = document.getElementById("tabRoadmap");
-const tabCode = document.getElementById("tabCode");
+const progressBar = document.getElementById("progressBar");
 
-if(!languages[langId]){
-  hero.innerHTML = "<h2>Bahasa tidak ditemukan</h2>";
+// Set title
+if(!langData){
+  langNameEl.innerText = "Bahasa tidak ditemukan";
+  tabContent.innerHTML = "";
 } else {
-  const lang = languages[langId];
-  hero.innerHTML = `<h2>${lang.name}</h2><p>${lang.description}</p>`;
-  renderTab("overview");
+  langNameEl.innerText = langData.name;
+  updateProgress(langId);
 
-  tabOverview.onclick = ()=> renderTab("overview");
-  tabRoadmap.onclick = ()=> renderTab("roadmap");
-  tabCode.onclick = ()=> renderTab("code");
-}
+  // Tab logic
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  tabBtns.forEach(btn => btn.addEventListener("click", ()=>{
+    tabBtns.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    showTab(btn.dataset.tab);
+  }));
 
-function renderTab(tab){
-  if(!languages[langId]) return;
-  const lang = languages[langId];
-  if(tab==="overview"){
-    tabContent.innerHTML = `<h3>Sejarah & Deskripsi</h3>
-      <p>${lang.description}</p>
-      <p>Level: ${lang.level}</p>`;
-  } else if(tab==="roadmap"){
-    tabContent.innerHTML = `<h3>Roadmap Belajar</h3>
-      <ul>${lang.roadmap.map(r=>`<li>${r}</li>`).join("")}</ul>`;
-  } else if(tab==="code"){
-    tabContent.innerHTML = `<h3>Contoh Kode</h3>
-      <pre><code>${lang.example}</code></pre>`;
+  function showTab(tab){
+    switch(tab){
+      case "desc":
+        tabContent.innerHTML = `<p>${langData.description}</p><p>Level: ${langData.level}</p>`;
+        break;
+      case "materi":
+        tabContent.innerHTML = `<ul>${langData.materi.map(m=>`<li>${m}</li>`).join("")}</ul>`;
+        break;
+      case "roadmap":
+        tabContent.innerHTML = `<ul>${langData.roadmap.map(r=>`<li>${r}</li>`).join("")}</ul>`;
+        break;
+      case "code":
+        tabContent.innerHTML = `<pre><code>${langData.codeExample}</code></pre>`;
+        break;
+    }
   }
+
+  showTab("desc"); // default
 }
 
 function markDone(){
-  if(!langId) return;
-  localStorage.setItem("done-"+langId,true);
+  saveProgress(langId);
   alert("Progress disimpan ✅");
-    }
+  updateProgress(langId);
+}
