@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Belajar Bahasa Pemrograman</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/theme.css">
-<link rel="stylesheet" href="../css/animations.css">
+  <meta charset="UTF-8">
+  <title>Belajar Bahasa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/animations.css">
 </head>
 <body>
 
@@ -19,24 +19,31 @@
   </ul>
 </nav>
 
-<section class="learn-hero" id="learnHero">
-  <h2>Memuat bahasa...</h2>
-</section>
+<section class="learn-container">
+  <h2 id="langName">Memuat...</h2>
 
-<section class="tab-buttons">
-  <button id="tabOverview">Sejarah & Deskripsi</button>
-  <button id="tabRoadmap">Roadmap</button>
-  <button id="tabCode">Contoh Kode</button>
-</section>
+  <div class="tabs">
+    <button data-tab="desc" class="tab-btn active">Deskripsi</button>
+    <button data-tab="materi" class="tab-btn">Materi</button>
+    <button data-tab="roadmap" class="tab-btn">Roadmap</button>
+    <button data-tab="code" class="tab-btn">Contoh Kode</button>
+  </div>
 
-<section class="tab-content" id="tabContent">
-  <!-- Konten materi akan muncul di sini -->
-</section>
+  <div class="tab-content" id="tabContent">
+    <p>Loading...</p>
+  </div>
 
-<button onclick="markDone()">✔ Tandai Selesai</button>
-<a href="index.html">⬅ Kembali</a>
+  <div class="progress-box">
+    <div class="progress-bar" id="progressBar" style="width:0%">0%</div>
+  </div>
+
+  <button onclick="markDone()" class="btn">✔ Tandai Selesai</button>
+  <a href="index.html" class="btn">⬅ Kembali</a>
+</section>
 
 <script src="../js/data.languages.js"></script>
+<script src="../js/progress.js"></script>
+<script src="../js/ui.js"></script>
 <script src="../js/learn.js"></script>
 </body>
 </html>
