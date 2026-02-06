@@ -2,18 +2,25 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Apa Itu Coding & Programmer</title>
+  <title>Belajar Coding & Bahasa Pemrograman | Ocitmas36</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Belajar coding dan bahasa pemrograman dari nol sampai profesional. JavaScript, Python, PHP, dan lainnya. Cocok untuk pemula.">
+  <meta name="keywords" content="belajar coding, programmer, bahasa pemrograman, coding pemula">
+  <meta name="author" content="Ocitmas36">
+
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <header>
-  <h1>Selamat Datang 👋</h1>
+  <h1>Belajar Coding & Programmer</h1>
   <p>Apakah kamu ingin menjadi programmer?  
-     Silakan pilih bahasa pemrograman di bawah ini.</p>
+     Pilih bahasa dan mulai dari nol sampai profesional.</p>
 </header>
 
+<!-- TOMBOL BAHASA -->
 <section class="buttons">
   <button onclick="loadLang('javascript')">JavaScript</button>
   <button onclick="loadLang('python')">Python</button>
@@ -32,27 +39,54 @@
   <button onclick="loadLang('r')">R</button>
 </section>
 
+<!-- KONTEN -->
 <section id="content">
-  <h2>Pilih Bahasa Pemrograman</h2>
-  <p>Materi lengkap Level 1–4 akan muncul di sini.</p>
+  <h2>Silakan pilih bahasa pemrograman</h2>
+  <p>Materi Level 1–4 akan muncul di sini.</p>
 </section>
 
+<!-- GRAFIK -->
 <section class="chart-box">
   <canvas id="chart"></canvas>
 </section>
 
+<!-- QUIZ SKOR -->
 <section id="quiz">
-  <h2>Quiz Singkat</h2>
-  <p id="q">Bahasa apa yang paling populer untuk AI?</p>
-  <button onclick="jawab(true)">Python</button>
-  <button onclick="jawab(false)">PHP</button>
-  <button onclick="jawab(false)">C</button>
-  <p id="hasil"></p>
+  <h2>Quiz Programmer</h2>
+  <p id="question">Klik mulai untuk mengerjakan quiz</p>
+  <div id="answers"></div>
+  <button id="startBtn" onclick="startQuiz()">Mulai Quiz</button>
+
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+
+  <p id="scoreText"></p>
+  <p id="badge"></p>
+</section>
+
+<!-- REKOMENDASI (CUAN READY) -->
+<section id="rekomendasi">
+  <h2>Rekomendasi Belajar</h2>
+  <ul>
+    <li>Buku Belajar Coding untuk Pemula</li>
+    <li>Kursus Online JavaScript & Python</li>
+    <li>Roadmap Programmer Profesional</li>
+  </ul>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>Tentang Website Ini</h2>
+  <p>
+    Website ini dibuat oleh <b>Ocitmas36</b> sebagai media edukasi
+    untuk membantu pemula memahami dunia coding dan bahasa pemrograman
+    dari level dasar hingga profesional.
+  </p>
 </section>
 
 <footer>
-  <p>© 2026 | Web Edukasi Coding & Programmer</p>
-  <p>Dibuat oleh: <b>Ocitmas36</b></p>
+  <p>© 2026 | Belajar Coding by Ocitmas36</p>
   <p>Hosting: GitHub Pages</p>
 </footer>
 
